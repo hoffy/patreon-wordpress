@@ -138,9 +138,11 @@ class Patreon_Frontend {
 
 			if( $user_patronage == false || $user_patronage < ($patreon_level*100) ) {
 				$content = self::displayPatreonCampaignBanner();
-			}
-
-		}
+			} else if ( current_user_can('edit_others_pages') ) {
+       return $content;
+    		}  
+    
+    }
 
 		return $content;
 
